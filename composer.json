@@ -1,0 +1,23 @@
+{
+  "name": "rayblair/unicode",
+  "description": "Type-Safe Unicode Characters",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Rayblair\\Unicode\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Ray Blair",
+      "email": "rayblair06@hotmail.com"
+    }
+  ],
+  "require-dev": {
+    "phpunit/phpunit": "^9.0"
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit"
+  }
+}
