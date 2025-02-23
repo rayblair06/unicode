@@ -1,0 +1,18 @@
+{
+  "name": "rayblair06/unicode",
+  "description": "Type-Safe Unicode Characters",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Rayblair\\Unicode\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Ray Blair",
+      "email": "rayblair06@hotmail.com"
+    }
+  ],
+  "require": {}
+}
