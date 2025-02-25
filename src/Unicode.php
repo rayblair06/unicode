@@ -27,6 +27,12 @@ class Unicode
     public const LONG_LEFT_RIGHT_ARROW = "\u27F7"; // ⟷
     public const LEFTWARDS_ARROW_WITH_HOOK = "\u21A9"; // ↩
     public const RIGHTWARDS_ARROW_WITH_HOOK = "\u21AA"; // ↪
+    public const NORTH_EAST_ARROW = "\u2197"; // ↗
+    public const NORTH_WEST_ARROW = "\u2196"; // ↖
+    public const SOUTH_EAST_ARROW = "\u2198"; // ↘
+    public const SOUTH_WEST_ARROW = "\u2199"; // ↙
+    public const CLOCKWISE_ARROW = "\u21BB"; // ↻
+    public const COUNTERCLOCKWISE_ARROW = "\u21BA"; // ↺
 
     // Mathematical Symbols
     public const INFINITY = "\u221E"; // ∞
@@ -48,6 +54,16 @@ class Unicode
     public const INTERSECTION = "\u2229"; // ∩
     public const FOR_ALL = "\u2200"; // ∀
     public const THERE_EXISTS = "\u2203"; // ∃
+    public const EMPTY_SET = "\u2205"; // ∅
+    public const SUBSET_OF = "\u2282"; // ⊂
+    public const SUPERSET_OF = "\u2283"; // ⊃
+    public const SUBSET_OR_EQUAL = "\u2286"; // ⊆
+    public const SUPERSET_OR_EQUAL = "\u2287"; // ⊇
+    public const LOGICAL_AND = "\u2227"; // ∧
+    public const LOGICAL_OR = "\u2228"; // ∨
+    public const LOGICAL_NOT = "\u00AC"; // ¬
+    public const THEREFORE = "\u2234"; // ∴
+    public const BECAUSE = "\u2235"; // ∵
 
     // Currency Symbols
     public const DOLLAR_SIGN = "\u0024"; // $
@@ -113,12 +129,35 @@ class Unicode
     public const CONGRUENT = "\u2245"; // ≅
     public const NOT_EQUAL_TO = "\u2260"; // ≠
 
+    // Additional Symbols
+    public const MUSIC_NOTE = "\u266A"; // ♪
+    public const EIGHTH_NOTE = "\u266B"; // ♫
+    public const HOT_BEVERAGE = "\u2615"; // ☕
+    public const WARNING_SIGN = "\u26A0"; // ⚠
+    public const RADIOACTIVE = "\u2622"; // ☢
+    public const BIOHAZARD = "\u2623"; // ☣
+    public const PEACE_SYMBOL = "\u262E"; // ☮
+    public const YIN_YANG = "\u262F"; // ☯
+    public const HAMMER_AND_PICK = "\u2692"; // ⚒
+
+
+    // Typography and Punctuation
+    public const EN_DASH = "\u2013"; // –
+    public const EM_DASH = "\u2014"; // —
+    public const SINGLE_QUOTE_LEFT = "\u2018"; // '
+    public const SINGLE_QUOTE_RIGHT = "\u2019"; // '
+    public const DOUBLE_QUOTE_LEFT = "\u201C"; // "
+    public const DOUBLE_QUOTE_RIGHT = "\u201D"; // "
+    public const DAGGER = "\u2020"; // †
+    public const DOUBLE_DAGGER = "\u2021"; // ‡
+
     /**
      * Returns a list of all Unicode constants in this class.
      */
     public static function getAll(): array
     {
         $reflection = new \ReflectionClass(__CLASS__);
+        
         return $reflection->getConstants();
     }
 }
