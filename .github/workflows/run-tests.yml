@@ -21,8 +21,6 @@ jobs:
           8.2,
           8.1,
           8.0,
-          7.4,
-          7.3,
         ]
 
     name: PHP v${{ matrix.php }}
@@ -36,6 +34,9 @@ jobs:
         with:
             php-version: ${{ matrix.php }}
             tools: composer:v2
+
+      - name: Validate Composer
+        run: composer validate --strict
 
       - name: Install PHP Dependencies
         run: composer install --no-progress --prefer-dist --optimize-autoloader
