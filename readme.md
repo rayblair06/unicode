@@ -54,7 +54,7 @@ print_r($allUnicodes);
 
 ### Get Escaped Unicode Sequences 
 ```php
-echo  Unicode::escape(Unicode::RIGHT_ARROW); // Outputs \u2190
+echo Unicode::escape(Unicode::RIGHT_ARROW); // Outputs \u2190
 ```
 
 ---
@@ -178,24 +178,9 @@ Array
 
 ## 🌐 Compatibility
 
-- PHP 7.4 and above
-- Works on any platform supporting PHP
+- PHP 7.3 and above
 
 ---
-
-## 🧪 Testing
-
-To test the class, simply use the PHP built-in server:
-
-```bash
-php -S localhost:8000
-```
-
-Then access the test file in your browser:
-
-```
-http://localhost:8000/test.php
-```
 
 ---
 
