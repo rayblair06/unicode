@@ -1,24 +1,35 @@
 # Unicode PHP Class
 
-A well-structured and easy-to-use PHP class providing access to a variety of Unicode symbols, including arrows, mathematical symbols, currency symbols, emojis, shapes, Greek letters, and miscellaneous symbols. This class simplifies the use of common Unicode characters in PHP applications, console outputs, and web development.
+A well-structured and easy-to-use PHP class providing access to Unicode utilities. This class allows working with Unicode characters in a **type-safe and explicit** manner for PHP applications by providing constants and methods to retrieve subsets of characters, escape Unicode sequences, and more.
 
 ---
 
 ## ⚡ Features
 
-- Easy access to a wide range of Unicode characters
-- Organized constants for better usability, covering:
-  - **Arrows**
-  - **Mathematical Symbols**
-  - **Currency Symbols**
-  - **Emojis**
-  - **Shapes and Symbols**
-  - **Miscellaneous Symbols**
-  - **Typography and Punctuation**
-- Method to retrieve all Unicode constants in the class
+- **Unicode constants** for type-safe and explicit declarations 
+- **Retrieve all Unicode constants** defined in the class
+- **Fetch a subset of Unicode constants** by count or range
+- **Convert UTF-8 characters to Unicode escape sequences**
+- **Provides structured access** to Unicode symbols
+- **Ensures strict type safety for better maintainability**
 
 ---
 
+
+## 🔥 Example
+
+```php
+use Rayblair\Unicode\Unicode;
+
+echo Unicode::HYPHEN_MINUS; // Outputs: -
+
+$mappings = [
+    Unicode::EN_DASH => Unicode::HYPHEN_MINUS,
+    Unicode::EM_DASH => Unicode::HYPHEN_MINUS,
+];
+```
+
+---
 ## 🚀 Installation
 
 1. Install via Composer:
@@ -33,121 +44,23 @@ composer require rayblair/unicode
 
 ### Basic Usage
 ```php
-use Rayblair\Unicode;
+use Rayblair\Unicode\Unicode;
 
-// Output a right arrow
-echo Unicode::RIGHT_ARROW; // Outputs →
+// Get single Unicode constant
+print_r(Unicode::HYPHEN_MINUS); // Outputs: -
 
-// Output a smiley face emoji
-echo Unicode::SMILEY_FACE; // Outputs ☺
+// Get all Unicode constants
+print_r(Unicode::getAll());
 
-// Output a heart symbol
-echo Unicode::HEART; // Outputs ❤
+// Get first 10 Unicode constants
+print_r(Unicode::get(10));
+
+// Get Unicode characters within a specific range
+print_r(Unicode::range('0041', '0044'));
+
+// Convert UTF-8 characters into Unicode escape sequences
+echo Unicode::escape('A'); // Outputs \u0041
 ```
-
-### Get All Unicode Constants
-```php
-$allUnicodes = Unicode::getAll();
-
-print_r($allUnicodes);
-```
-
-### Get Escaped Unicode Sequences 
-```php
-echo  Unicode::escape(Unicode::RIGHT_ARROW); // Outputs \u2190
-```
-
----
-
-## 🔥 Available Categories
-
-### **Arrows**
-- `LEFT_ARROW` ←
-- `RIGHT_ARROW` →
-- `UP_ARROW` ↑
-- `DOWN_ARROW` ↓
-- `DOUBLE_LEFT_ARROW` ⇐
-- `DOUBLE_RIGHT_ARROW` ⇒
-- `DOUBLE_UP_ARROW` ⇑
-- `DOUBLE_DOWN_ARROW` ⇓
-- `LEFT_RIGHT_ARROW` ↔
-- `UP_DOWN_ARROW` ↕
-- `CLOCKWISE_ARROW` ↻
-- `COUNTERCLOCKWISE_ARROW` ↺
-
-### **Mathematical Symbols**
-- `INFINITY` ∞
-- `SUMMATION` ∑
-- `SQUARE_ROOT` √
-- `APPROXIMATELY_EQUAL` ≈
-- `NOT_EQUAL` ≠
-- `LESS_THAN_EQUAL` ≤
-- `GREATER_THAN_EQUAL` ≥
-- `PI_SYMBOL` π
-- `MULTIPLICATION` ×
-- `DIVISION` ÷
-- `PLUS_MINUS` ±
-- `LOGICAL_AND` ∧
-- `LOGICAL_OR` ∨
-
-### **Currency Symbols**
-- `DOLLAR_SIGN` $
-- `EURO_SIGN` €
-- `POUND_SIGN` £
-- `YEN_SIGN` ¥
-- `BITCOIN_SIGN` ₿
-- `WON_SIGN` ₩
-- `SHEKEL_SIGN` ₪
-
-### **Emojis**
-- `SMILEY_FACE` ☺
-- `HEART` ❤
-- `STAR` ★
-- `FIRE` 🔥
-- `THUMBS_UP` 👍
-- `THINKING_FACE` 🤔
-- `FACE_WITH_TEARS_OF_JOY` 😂
-- `CRYING_FACE` 😢
-- `CHECK_MARK_BUTTON` ✅
-- `CROSS_MARK_BUTTON` ❌
-
-### **Shapes and Symbols**
-- `BLACK_CIRCLE` ●
-- `WHITE_CIRCLE` ○
-- `BLACK_SQUARE` ■
-- `WHITE_SQUARE` □
-- `TRIANGLE_UP` ▲
-- `TRIANGLE_DOWN` ▼
-- `SPADE` ♠
-- `HEART_SHAPE` ♥
-- `CLUB` ♣
-- `DIAMOND_SHAPE` ♦
-
-### **Miscellaneous**
-- `CHECK_MARK` ✓
-- `CROSS_MARK` ✗
-- `COPYRIGHT` ©
-- `REGISTERED` ®
-- `TRADEMARK` ™
-- `SECTION` §
-- `DEGREE` °
-- `BULLET` •
-- `ELLIPSIS` …
-- `INFINITY_SYMBOL` ∞
-- `WARNING_SIGN` ⚠
-- `BIOHAZARD` ☣
-- `PEACE_SYMBOL` ☮
-- `YIN_YANG` ☯
-
-### **Typography and Punctuation**
-- `EN_DASH` –
-- `EM_DASH` —
-- `SINGLE_QUOTE_LEFT` ‘
-- `SINGLE_QUOTE_RIGHT` ’
-- `DOUBLE_QUOTE_LEFT` “
-- `DOUBLE_QUOTE_RIGHT` ”
-- `DAGGER` †
-- `DOUBLE_DAGGER` ‡
 
 ---
 
@@ -159,62 +72,55 @@ Returns an associative array of all defined Unicode constants.
 ```php
 print_r(Unicode::getAll());
 ```
-
 Output Example:
 ```php
 Array
 (
-    [LEFT_ARROW] => ←
-    [RIGHT_ARROW] => →
-    [UP_ARROW] => ↑
-    [DOWN_ARROW] => ↓
-    [INFINITY] => ∞
-    [SMILEY_FACE] => ☺
-    [HEART] => ❤
+    [LATIN_CAPITAL_LETTER_A] => A
+    [LATIN_CAPITAL_LETTER_B] => B
+    [LATIN_SMALL_LETTER_A] => a
 )
 ```
 
----
-
-## 🌐 Compatibility
-
-- PHP 7.4 and above
-- Works on any platform supporting PHP
-
----
-
-## 🧪 Testing
-
-To test the class, simply use the PHP built-in server:
-
-```bash
-php -S localhost:8000
-```
-
-Then access the test file in your browser:
-
-```
-http://localhost:8000/test.php
-```
-
----
-
-## 🔥 Example
-
+### `get(int $count)`
+Returns a subset of Unicode constants up to the given count.
 ```php
-use Rayblair\Unicode;
-
-echo "Arrows: " . Unicode::LEFT_ARROW . " " . Unicode::RIGHT_ARROW . "\n";
-echo "Math Symbols: " . Unicode::INFINITY . " " . Unicode::PI_SYMBOL . "\n";
-echo "Emojis: " . Unicode::SMILEY_FACE . " " . Unicode::HEART . "\n";
-echo "Shapes: " . Unicode::BLACK_CIRCLE . " " . Unicode::WHITE_SQUARE . "\n";
+print_r(Unicode::get(5));
 ```
+
+### `range(string $start, string $end)`
+Returns a subset of Unicode constants within a specified Unicode hex range.
+```php
+print_r(Unicode::range('0041', '0044'));
+```
+Output:
+```php
+Array
+(
+    [LATIN_CAPITAL_LETTER_A] => A
+    [LATIN_CAPITAL_LETTER_B] => B
+    [LATIN_CAPITAL_LETTER_C] => C
+    [LATIN_CAPITAL_LETTER_D] => D
+)
+```
+
+### `escape(string $utf8String)`
+Converts UTF-8 characters into Unicode escape sequences (`\uXXXX`).
+```php
+echo Unicode::escape('Hello, 😊!'); // Outputs: \u0048\u0065\u006c\u006c\u006f, \u1F60A!
+```
+
+---
+
+## 🌍 Compatibility
+
+- PHP 8.0 and above
 
 ---
 
 ## 🚀 Contribution
 
-Contributions are welcome! If you have more Unicode symbols to add or improvements to suggest, feel free to:
+Contributions are welcome! If you have improvements or additional Unicode symbols to add, feel free to:
 
 1. Fork the repository
 2. Create a new branch
@@ -238,3 +144,4 @@ For issues or suggestions, feel free to open an issue on GitHub.
 ## ⭐ Support
 
 If you find this project useful, consider giving it a ⭐ on GitHub!
+
